@@ -1,0 +1,55 @@
+---
+title: "assignment_3"
+author: "Julia Maier"
+date: "10 11 2019"
+output: html_document
+---
+
+Assignment_3
+
+#Nr.1
+```{r, echo=T}
+df <- read.table("C:/Users/Julia/Documents/Biologie/5. Semester/Datenanalyse mit R/data_analysis/data/hessen_holzeinschlag_1997-2014.csv", header = TRUE, sep = ";")
+data.frame(df)
+```
+#Nr.2
+```{r, echo=T}
+attach(df)
+boxplot(Eiche, Buche, Buntholz, Fichte, Kiefer, Insgesamt, names = c("Oak", "Beech", "Colored wood", "Spruce", "Pine", "Total"))
+```
+
+#Nr.3
+```{r, echo=T}
+require(ggplot2)
+require(Rmisc)
+p1 <- ggplot(df, aes(x = FWJ)) +
+  geom_line(aes(y = Buche), col = "blue") +
+  geom_line(aes(y = Eiche), col = "purple") +
+  xlab("Year") + ylab("No. of felled trees") +
+  labs(title = "Beech (blue), oak (purple)")
+ 
+p2 <- ggplot(df, aes(x = FWJ)) +
+  geom_line(aes(y = Buche), col = "blue") +
+  geom_line(aes(y = Buntholz), col = "red") +
+  xlab("Year") + ylab("No. of felled trees") +
+  labs(title = "Beech (blue), colored wood (red)")
+
+p3 <- ggplot(df, aes(x = FWJ)) +
+  geom_line(aes(y = Buche), col = "blue") +
+  geom_line(aes(y = Fichte), col = "green") +
+  xlab("Year") + ylab("No. of felled trees") +
+  labs(title = "Beech (blue), spruce (green)")
+
+p4 <- ggplot(df, aes(x = FWJ)) +
+  geom_line(aes(y = Buche), col = "blue") +
+  geom_line(aes(y = Kiefer), col = "orange") +
+  xlab("Year") + ylab("No. of felled trees") +
+  labs(title = "Beech (blue), pine (orange)")
+
+multiplot(p1, p2, p3, p4, cols = 2)
+```
+
+#Nr.4
+```{r, echo=T}
+#From 1997 to 2014 there was more beech and spruce felled than other tree species. While the number of felled trees in beech, oak, colored wood and pine was more or less stable over the years, the number of felled spruce had an extremely high peak in 2007.
+```

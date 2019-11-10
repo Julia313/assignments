@@ -1,0 +1,57 @@
+---
+title: "Assignment_1"
+author: "Julia Maier"
+date: "1 11 2019"
+output: html_document
+---
+
+Assignment_1
+
+#Nr.1
+```{r, echo=T}
+a <- 2
+b <- 5
+```
+#Nr.2
+```{r, echo=T}
+r1 <- a + b
+r2 <- a - b
+r3 <- a * b
+r4 <- a / b
+```
+#Nr.3
+```{r, echo=T}
+v1 <- c(r1, r2, r3, r4)
+```
+#Nr.4
+```{r, echo=T}
+v1[5] <- a**b
+```
+#Nr.5
+```{r, echo=T}
+print(v1)
+```
+#Nr.6
+```{r, echo=T}
+v2 <- c("sum", "difference", "product", "ratio", "power")
+```
+#Nr.7
+```{r, echo=T}
+print(v2)
+```
+#Nr.8
+```{r, echo=T}
+df <- data.frame(v1,v2)
+```
+#Nr.9
+```{r, echo=T}
+colnames(df) <- c("Results", "Operation")
+```
+#Nr.10
+```{r, echo=T}
+print(df)
+```
+#Nr.11
+```{r, echo=T}
+df[3,1]
+```
